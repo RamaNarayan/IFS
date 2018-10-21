@@ -66,34 +66,12 @@ input[type=checkbox], input[type=radio] {
 tr:hover {
   background-color: #f5f5f5;
 }
-.bookSearchBox{
-  margin-top: 35%;
-  margin-left: 47%;
-}
-
-.isbnTable{
-  margin-top:2%;
-}
-
-.afterResult{
+.twitterQueryBox{
   margin-top: 5%;
+  margin-left: 10%;
 }
 
-.indexValue{
-  width:8em;
-}
-
-.checkOutButton{
-  margin-top:5px;
-  margin-right:5px;
-  margin-bottom: 5px;
-}
-
-.alertMessage{
-  margin-top:5px;
-}
-
-.searchBook input.form-control{
+.dashboard input.form-control{
   border-radius: 0;
 }
 
@@ -104,47 +82,6 @@ tr:hover {
 button.btn.btn-primary{
   background-color: #4267b2;
   border-color: #4267b2;
-}
-
-.cardIdText{
-  display:inline-block;
-}
-
-.noResults{
-  margin-top: 1%;
-}
-
-.loadingSearch{
-  margin-top: 3%;
-  margin-left: 45%;
-}
-
-.alertSuccess{
-  color: green;
-  font-size: 14px;
-  margin-bottom: 10px;
-  margin-top: 5px;
-}
-
-.alertDanger{
-  color: red;
-  font-size: 14px;
-  margin-bottom: 10px;
-  margin-top: 5px;
-}
-.checkIn input.form-control{
-  border-radius: 0;
-}
-.noResultsFine{
-  margin-top: 15%;
-  margin-left: 45%;
-}
-
-.pull-right{
-  float:right;
-}
-.borrowerManagement{
-  padding-top: 5px;
 }
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
