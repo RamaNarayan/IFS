@@ -31,4 +31,5 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	compile('org.json:json:20171018')
+	compile('org.apache.spark:spark-launcher_2.11:2.3.1')
 }
