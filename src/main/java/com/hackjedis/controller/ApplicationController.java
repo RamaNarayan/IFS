@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hackjedis.service.ApplicationService;
+
 @SpringBootApplication
 @RestController
 public class ApplicationController {
@@ -26,7 +28,9 @@ public class ApplicationController {
 
 	@RequestMapping(value = "/config", method = RequestMethod.GET)
 	String config() {
-		return "http://localhost:5601/app/kibana#/dashboard/AWaTpJ1byuUaWgAAZyzJ?embed=true&_g=(refreshInterval:('$$hashKey':'object:303',display:'5+seconds',pause:!f,section:1,value:5000),time:(from:now-15m,mode:quick,to:now))&_a=(description:'',filters:!(),options:(darkTheme:!f),panels:!((col:1,id:AWYl-8PyIxk6pAbfNNyW,panelIndex:1,row:1,size_x:6,size_y:3,type:visualization),(col:7,id:AWaTo4QEyuUaWgAAZyy9,panelIndex:2,row:1,size_x:6,size_y:3,type:visualization)),query:(match_all:()),timeRestore:!f,title:'Sentiments+Dashboard',uiState:(),viewMode:view)";
+		ApplicationService service = new ApplicationService();
+		String dashboardUrl = service.getDashboardUrl();
+		return dashboardUrl;
 	}
 
 	public static void main(String[] args) {
