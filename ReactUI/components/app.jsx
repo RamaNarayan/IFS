@@ -16,7 +16,6 @@ class App extends React.Component {
  }
 
  handleTabClick(page){
-   console.log("page "+page)
    this.props.setPage(page)
  }
 
@@ -41,17 +40,6 @@ class App extends React.Component {
         <div className = 'titleBlock'>
           <h1 className = 'pageHeader'>{title}</h1>
         </div>
-        <nav className="navbar navigation">
-        <a className={this.props.page  == 'dashboard' ? "navbar-item "+highlightOption : "navbar-item"} href="#" onClick={()=>this.handleTabClick('dashboard')}>
-          <span>Dashboard</span>
-        </a>
-        <a className={this.props.page  == 'topicModelling' ? "navbar-item "+highlightOption : "navbar-item"} href="#" onClick={()=>this.handleTabClick('topicModelling')}>
-          <span>Topic Modelling</span>
-        </a>
-        <a className={this.props.page  == 'settings' ? "navbar-item "+highlightOption : "navbar-item"} href="#" onClick={()=>this.handleTabClick('settings')}>
-          <span>Settings</span>
-        </a>
-      </nav>
       {this.getRenderComponents()}
    </div>
  }

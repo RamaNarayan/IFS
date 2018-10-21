@@ -8,7 +8,6 @@ class Settings extends React.Component {
 
  render(){
    return <div className = 'Settings'>
-     settings
    </div>
  }
 }

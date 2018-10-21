@@ -8,7 +8,6 @@ class TopicModelling extends React.Component {
 
  render(){
    return <div className = 'TopicModelling'>
-     topics
    </div>
  }
 }

@@ -7,12 +7,10 @@ const initalState = fromJS({
 });
 
 function setPage(state,page){
-  console.log("in reducer")
   return state.set('page',page)
 }
 
 function setTitle(state,title){
-  console.log("in reducer")
   return state.set('title',title)
 }
 

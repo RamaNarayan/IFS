@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {setDashboardUrl} from '../actionCreators/dashboard.js'
 
 class Dashboard extends React.Component {
  constructor(props){
@@ -7,9 +8,19 @@ class Dashboard extends React.Component {
    this.handleSearch = this.handleSearch.bind(this);
  }
 
+ componentDidMount(){
+   $.ajax({
+            url: 'http://localhost:8080/config',
+            type: 'GET',
+            success: function(response) {
+              this.props.setDashboardUrl(response);
+            }.bind(this),
+            error: function(error) {
+            }.bind(this)
+        });
+ }
+
  handleSearch(event){
-   console.log("searchValue"+this.searchInput.value);
-   let searchJson = {'searchQuery':this.searchInput.value};
    let bool;
    if(event.target.name == "goQuery" ){
      bool = this.searchInput.value.length > 0
@@ -18,17 +29,17 @@ class Dashboard extends React.Component {
      bool = this.searchInput.value.length > 0;
    }
    if(bool){
+     let searchJson = {"searchQuery":this.searchInput.value};
      $.ajax({
-              url: 'http://localhost:8080/searchQuery',
+              url: 'http://localhost:8080/search',
               type: 'POST',
               dataType: 'json',
               contentType: 'application/json',
-              data: searchJson,
+              mimeType: 'application/json',
+              data: JSON.stringify(searchJson),
               success: function(response) {
-                console.log("success")
               }.bind(this),
               error: function(error) {
-                console.log("failure")
               }.bind(this)
           });
    }
@@ -45,13 +56,12 @@ class Dashboard extends React.Component {
           <button className="btn btn-primary" name ='goQuery' type="button" onClick={this.handleSearch}> Go </button>
         </span>
       </div>
-
-
      </div>
-     <div className = 'col-md-12 kibanaFrame'>
-       <iframe src="http://localhost:5601/app/kibana#/dashboard/AWaTpJ1byuUaWgAAZyzJ?embed=true&_g=(refreshInterval:('$$hashKey':'object:303',display:'5+seconds',pause:!f,section:1,value:5000),time:(from:now-15m,mode:quick,to:now))&_a=(description:'',filters:!(),options:(darkTheme:!f),panels:!((col:1,id:AWYl-8PyIxk6pAbfNNyW,panelIndex:1,row:1,size_x:6,size_y:3,type:visualization),(col:7,id:AWaTo4QEyuUaWgAAZyy9,panelIndex:2,row:1,size_x:6,size_y:3,type:visualization)),query:(match_all:()),timeRestore:!f,title:'Sentiments+Dashboard',uiState:(),viewMode:view)" height="100%" width="100%"></iframe>
-     </div>
-
+     {
+       this.props.dashboardUrl == null ? null :  <div className = 'col-md-12 kibanaFrame'>
+          <iframe src={this.props.dashboardUrl} height="100%" width="100%"></iframe>
+        </div>
+     }
      </div>
    </div>
    </div>
@@ -59,15 +69,20 @@ class Dashboard extends React.Component {
 }
 
 Dashboard.propTypes = {
+  dashboardUrl: React.PropTypes.string
 }
 
 const mapStateToProps = (state) => {
  return {
+   dashboardUrl: state.getIn(['dashboard','dashboardUrl'])
  };
 }
 
 const mapDispatchToProps = (dispatch) => {
  return {
+   setDashboardUrl: (url) => {
+     dispatch(setDashboardUrl(url));
+   },
  };
 }
 
