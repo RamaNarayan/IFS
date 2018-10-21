@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Properties;
 
 import org.apache.spark.launcher.SparkAppHandle;
 import org.apache.spark.launcher.SparkLauncher;
@@ -29,12 +30,22 @@ public class ApplicationController {
 			JSONObject obj = new JSONObject(payload);
 			String searchQuery = obj.getString("searchQuery");
 			
-			final String sparkHome = "D:/Courses/BigData/Apps/spark-2.3.1-bin-hadoop2.7";
-		        final String appResource = "///D:/twitter-1.0-jar-with-dependencies.jar";
-		        final String mainClass = "streaming.TwitterProducer";
-		        //
-		        // parameters passed to the  SparkFriendRecommendation
-		        final String[] appArgs = new String[]{
+			FileInputStream in;
+			Properties props = new Properties();
+			String sparkHome ;
+	        String appResource;
+	        String mainClass = "streaming.TwitterProducer";
+
+				in = new FileInputStream(System.getProperty("user.dir")+"/../resources/main/config/spark.properties");
+				props.load(in);
+				in.close();
+				sparkHome = props.getProperty("sparkHome");
+				appResource = props.getProperty("appResource"); 
+				System.out.println(appResource);
+				System.out.println(sparkHome);
+		
+			
+		        String[] appArgs = new String[]{
 		        		"sentiment", 
 		        		"negative",
 		        		"neutral",
@@ -58,7 +69,7 @@ public class ApplicationController {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		return "Hello World !";
+		return "Success";
 	}
 
 	@RequestMapping(value = "/config", method = RequestMethod.GET)

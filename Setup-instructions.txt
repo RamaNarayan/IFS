@@ -1,0 +1,17 @@
+Steps to run the Application (Windows platform):
+------------------------------------------------------------------------------
+- EleasticSearch, Logstash, Kibana should be installed.
+- Start zookeeper
+- Start kafka
+- Create 4 Kafka producers - sentiment, negative, neutral and positive.
+- Start ElasticSearch
+- Start logstash with the command at the root - .\bin\logstash -f logstash-simple.conf
+- Start kibana
+- Build a fat jar by maven package of SparkStreaming app and store it in <Path1>
+- Edit spark.properties and add path for sparkHome and appResource(Path1)
+- Copy kibana dashboard url path into kibana.properties
+- Build the IFS project at the root - gradle clean build
+- Copy twitter4j.properties into \build\libs that have valid twitter developer credentials
+- Naviagte to IFS/Build/libs
+- Run the project - java -jar .\IFS-0.0.1-SNAPSHOT.jar
+- Search for the tweet at localhost:8080
