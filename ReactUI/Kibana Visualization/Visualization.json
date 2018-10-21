@@ -1,0 +1,145 @@
+[
+  {
+    "_id": "AWaUmBpc8cOhcAcHKZL-",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Main",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"AWaUKz9n8cOhcAcHKZGT\",\"panelIndex\":5,\"row\":4,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"AWaULGZ38cOhcAcHKZGU\",\"panelIndex\":6,\"row\":7,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"AWaUp_8H8cOhcAcHKZM3\",\"panelIndex\":7,\"row\":1,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":7,\"id\":\"AWaUq2Xr8cOhcAcHKZNE\",\"panelIndex\":8,\"row\":4,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":7,\"id\":\"AWaVEbvKLfCZvtZFyYht\",\"panelIndex\":9,\"row\":1,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-3\":{\"vis\":{\"defaultColors\":{\"0 - 20\":\"rgb(247,251,255)\",\"20 - 40\":\"rgb(198,219,239)\",\"40 - 60\":\"rgb(107,174,214)\",\"60 - 80\":\"rgb(33,113,181)\",\"80 - 100\":\"rgb(8,48,107)\"}}},\"P-4\":{\"vis\":{\"defaultColors\":{\"0 - 20\":\"rgb(247,251,255)\",\"20 - 40\":\"rgb(198,219,239)\",\"40 - 60\":\"rgb(107,174,214)\",\"60 - 80\":\"rgb(33,113,181)\",\"80 - 100\":\"rgb(8,48,107)\"}}},\"P-5\":{\"vis\":{\"legendOpen\":false}},\"P-6\":{\"vis\":{\"legendOpen\":false}},\"P-7\":{\"vis\":{\"legendOpen\":false}},\"P-8\":{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}},\"P-9\":{\"vis\":{\"colors\":{\"Overall Sum of Count\":\"#629E51\"},\"legendOpen\":true}}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"match_all\":{}}}],\"highlightAll\":true,\"version\":true}"
+      }
+    }
+  },
+  {
+    "_id": "AWaVEbvKLfCZvtZFyYht",
+    "_type": "visualization",
+    "_source": {
+      "title": "Tweets processed against time",
+      "visState": "{\"title\":\"Tweets processed against time\",\"type\":\"line\",\"params\":{\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"truncate\":100},\"title\":{\"text\":\"@timestamp per 5 minutes\"}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Overall Sum of Count\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"line\",\"mode\":\"normal\",\"data\":{\"label\":\"Overall Sum of Count\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"showCircles\":true,\"interpolate\":\"linear\"},{\"show\":true,\"mode\":\"normal\",\"type\":\"line\",\"drawLinesBetweenPoints\":true,\"showCircles\":true,\"interpolate\":\"linear\",\"data\":{\"id\":\"3\",\"label\":\"Number of Negative Tweets\"},\"valueAxis\":\"ValueAxis-1\"},{\"show\":true,\"mode\":\"normal\",\"type\":\"line\",\"drawLinesBetweenPoints\":true,\"showCircles\":true,\"interpolate\":\"linear\",\"data\":{\"id\":\"4\",\"label\":\"Number of Neutral Tweets\"},\"valueAxis\":\"ValueAxis-1\"},{\"show\":true,\"mode\":\"normal\",\"type\":\"line\",\"drawLinesBetweenPoints\":true,\"showCircles\":true,\"interpolate\":\"linear\",\"data\":{\"id\":\"5\",\"label\":\"Number of Positive Tweets\"},\"valueAxis\":\"ValueAxis-1\"}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"type\":\"line\",\"radiusRatio\":\"51\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"1-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"1\"}}},\"label\":\"\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"3\"}}}},{\"input\":{\"query\":{\"query_string\":{\"query\":\"5\"}}}}]}},\"customMetric\":{\"id\":\"1-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}}}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"custom\",\"customInterval\":\"5m\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"enabled\":true,\"type\":\"max_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"3-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"1\"}}},\"label\":\"Number of Negative Tweets\"}]}},\"customMetric\":{\"id\":\"3-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{\"customLabel\":\"\"}},\"customLabel\":\"Number of Negative Tweets\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"max_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"4-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"3\"}}}}]}},\"customMetric\":{\"id\":\"4-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Number of Neutral Tweets\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"max_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"5-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"5\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"5-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Number of Positive Tweets\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Overall Sum of Count\":\"#447EBC\"},\"legendOpen\":true}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWaUKQbx8cOhcAcHKZGR\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "AWaUjrXC8cOhcAcHKZLY",
+    "_type": "visualization",
+    "_source": {
+      "title": "Negative Tweet count",
+      "visState": "{\"title\":\"Negative Tweet count\",\"type\":\"gauge\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"isDisplayWarning\":false,\"gauge\":{\"verticalSplit\":false,\"extendRange\":true,\"percentageMode\":false,\"gaugeType\":\"Metric\",\"gaugeStyle\":\"Full\",\"backStyle\":\"Full\",\"orientation\":\"vertical\",\"colorSchema\":\"Blues\",\"gaugeColorMode\":\"Background\",\"colorsRange\":[{\"from\":0,\"to\":20},{\"from\":20,\"to\":40},{\"from\":40,\"to\":60},{\"from\":60,\"to\":80},{\"from\":80,\"to\":100}],\"invertColors\":false,\"labels\":{\"show\":true,\"color\":\"black\"},\"scale\":{\"show\":true,\"labels\":false,\"color\":\"#333\"},\"type\":\"simple\",\"style\":{\"bgWidth\":0.9,\"width\":0.9,\"mask\":false,\"bgMask\":false,\"maskBars\":50,\"bgFill\":\"#fff\",\"bgColor\":true,\"subText\":\"\",\"fontSize\":\"42\",\"labelColor\":false},\"minAngle\":0,\"maxAngle\":6.283185307179586},\"type\":\"gauge\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Negative\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"group\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"1\"}}},\"label\":\"Negative\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"defaultColors\":{\"0 - 20\":\"rgb(247,251,255)\",\"20 - 40\":\"rgb(198,219,239)\",\"40 - 60\":\"rgb(107,174,214)\",\"60 - 80\":\"rgb(33,113,181)\",\"80 - 100\":\"rgb(8,48,107)\"},\"colors\":{\"80 - 100\":\"#0A437C\",\"60 - 80\":\"#0A50A1\",\"40 - 60\":\"#1F78C1\",\"20 - 40\":\"#5195CE\",\"0 - 20\":\"#82B5D8\"}},\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWaUKQbx8cOhcAcHKZGR\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "AWaULGZ38cOhcAcHKZGU",
+    "_type": "visualization",
+    "_source": {
+      "title": "Histogram of Sentiments",
+      "visState": "{\"title\":\"Histogram of Sentiments\",\"type\":\"histogram\",\"params\":{\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"truncate\":100},\"title\":{\"text\":\"filters\"}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Count\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"histogram\",\"mode\":\"stacked\",\"data\":{\"label\":\"Count\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"type\":\"histogram\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"1\"}}},\"label\":\"Negative\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"3\"}}},\"label\":\"Neutral\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"5\"}}},\"label\":\"Positive\"},{\"input\":{}}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWaUKQbx8cOhcAcHKZGR\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "AWaUjIJF8cOhcAcHKZLS",
+    "_type": "visualization",
+    "_source": {
+      "title": "Time Series",
+      "visState": "{\"title\":\"Time Series\",\"type\":\"metrics\",\"params\":{\"id\":\"927d9f00-d4dc-11e8-935f-9d4a0f4353fc\",\"type\":\"timeseries\",\"series\":[{\"id\":\"927d9f01-d4dc-11e8-935f-9d4a0f4353fc\",\"color\":\"#68BC00\",\"split_mode\":\"terms\",\"metrics\":[{\"id\":\"927d9f02-d4dc-11e8-935f-9d4a0f4353fc\",\"type\":\"count\"}],\"seperate_axis\":0,\"axis_position\":\"right\",\"formatter\":\"number\",\"chart_type\":\"line\",\"line_width\":1,\"point_size\":1,\"fill\":0.5,\"stacked\":\"none\",\"terms_field\":\"message.keyword\",\"terms_size\":\"30\",\"terms_order_by\":\"927d9f02-d4dc-11e8-935f-9d4a0f4353fc\"}],\"time_field\":\"@timestamp\",\"index_pattern\":\"*\",\"interval\":\"auto\",\"axis_position\":\"left\",\"axis_formatter\":\"number\",\"show_legend\":1,\"drop_last_bucket\":0,\"background_color_rules\":[{\"id\":\"b5356870-d4dc-11e8-935f-9d4a0f4353fc\"}],\"bar_color_rules\":[{\"id\":\"bb3cd5a0-d4dc-11e8-935f-9d4a0f4353fc\"}],\"gauge_color_rules\":[{\"id\":\"bbf63a90-d4dc-11e8-935f-9d4a0f4353fc\"}],\"gauge_width\":10,\"gauge_inner_width\":10,\"gauge_style\":\"half\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "AWaUp_8H8cOhcAcHKZM3",
+    "_type": "visualization",
+    "_source": {
+      "title": "Tweet distribution per minute",
+      "visState": "{\"title\":\"Tweet distribution per minute\",\"type\":\"histogram\",\"params\":{\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"truncate\":100},\"title\":{\"text\":\"Time Stamp\"}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Count\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"histogram\",\"mode\":\"stacked\",\"data\":{\"label\":\"Count\",\"id\":\"1\"},\"drawLinesBetweenPoints\":true,\"showCircles\":true,\"interpolate\":\"linear\",\"valueAxis\":\"ValueAxis-1\"}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"type\":\"area\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"m\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"Time Stamp\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"group\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"1\"}}},\"label\":\"Negative\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"3\"}}},\"label\":\"Neutral\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"5\"}}},\"label\":\"Positive\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"1\":\"#99440A\",\"3\":\"#6D1F62\",\"5\":\"#052B51\",\"Negative\":\"#2F575E\",\"Neutral\":\"#6D1F62\",\"Positive\":\"#E24D42\"},\"legendOpen\":true}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWaUKQbx8cOhcAcHKZGR\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "AWaUKz9n8cOhcAcHKZGT",
+    "_type": "visualization",
+    "_source": {
+      "title": "Division of tweets by sentiments",
+      "visState": "{\"title\":\"Division of tweets by sentiments\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Number of Tweets\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"1\",\"analyze_wildcard\":true}}},\"label\":\"Negative\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"3\",\"analyze_wildcard\":true}}},\"label\":\"Neutral\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"5\",\"analyze_wildcard\":true}}},\"label\":\"Positive\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWaUKQbx8cOhcAcHKZGR\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "AWaUjxF78cOhcAcHKZLZ",
+    "_type": "visualization",
+    "_source": {
+      "title": "Neutral Tweet count",
+      "visState": "{\"title\":\"Neutral Tweet count\",\"type\":\"gauge\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"isDisplayWarning\":false,\"gauge\":{\"verticalSplit\":false,\"extendRange\":true,\"percentageMode\":false,\"gaugeType\":\"Metric\",\"gaugeStyle\":\"Full\",\"backStyle\":\"Full\",\"orientation\":\"vertical\",\"colorSchema\":\"Blues\",\"gaugeColorMode\":\"Background\",\"colorsRange\":[{\"from\":0,\"to\":20},{\"from\":20,\"to\":40},{\"from\":40,\"to\":60},{\"from\":60,\"to\":80},{\"from\":80,\"to\":100}],\"invertColors\":false,\"labels\":{\"show\":true,\"color\":\"black\"},\"scale\":{\"show\":true,\"labels\":false,\"color\":\"#333\"},\"type\":\"simple\",\"style\":{\"bgWidth\":0.9,\"width\":0.9,\"mask\":false,\"bgMask\":false,\"maskBars\":50,\"bgFill\":\"#fff\",\"bgColor\":true,\"subText\":\"\",\"fontSize\":\"42\",\"labelColor\":false},\"minAngle\":0,\"maxAngle\":6.283185307179586},\"type\":\"gauge\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Number of Tweets\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"group\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"3\"}}},\"label\":\"Neutral\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"defaultColors\":{\"0 - 20\":\"rgb(247,251,255)\",\"20 - 40\":\"rgb(198,219,239)\",\"40 - 60\":\"rgb(107,174,214)\",\"60 - 80\":\"rgb(33,113,181)\",\"80 - 100\":\"rgb(8,48,107)\"},\"colors\":{\"80 - 100\":\"#0A437C\",\"60 - 80\":\"#0A50A1\",\"40 - 60\":\"#1F78C1\",\"20 - 40\":\"#5195CE\",\"0 - 20\":\"#82B5D8\"}},\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWaUKQbx8cOhcAcHKZGR\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "AWaUj2Qy8cOhcAcHKZLa",
+    "_type": "visualization",
+    "_source": {
+      "title": "Positive Tweet count",
+      "visState": "{\"title\":\"Positive Tweet count\",\"type\":\"gauge\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"isDisplayWarning\":false,\"gauge\":{\"verticalSplit\":false,\"extendRange\":true,\"percentageMode\":false,\"gaugeType\":\"Metric\",\"gaugeStyle\":\"Full\",\"backStyle\":\"Full\",\"orientation\":\"vertical\",\"colorSchema\":\"Blues\",\"gaugeColorMode\":\"Background\",\"colorsRange\":[{\"from\":0,\"to\":20},{\"from\":20,\"to\":40},{\"from\":40,\"to\":60},{\"from\":60,\"to\":80},{\"from\":80,\"to\":100}],\"invertColors\":false,\"labels\":{\"show\":true,\"color\":\"black\"},\"scale\":{\"show\":true,\"labels\":false,\"color\":\"#333\"},\"type\":\"simple\",\"style\":{\"bgWidth\":0.9,\"width\":0.9,\"mask\":false,\"bgMask\":false,\"maskBars\":50,\"bgFill\":\"#fff\",\"bgColor\":true,\"subText\":\"\",\"fontSize\":\"42\",\"labelColor\":false},\"minAngle\":0,\"maxAngle\":6.283185307179586},\"type\":\"gauge\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Number of Tweets\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"group\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"5\"}}},\"label\":\"Positive\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"defaultColors\":{\"0 - 20\":\"rgb(247,251,255)\",\"20 - 40\":\"rgb(198,219,239)\",\"40 - 60\":\"rgb(107,174,214)\",\"60 - 80\":\"rgb(33,113,181)\",\"80 - 100\":\"rgb(8,48,107)\"},\"colors\":{\"80 - 100\":\"#0A437C\",\"60 - 80\":\"#0A50A1\",\"40 - 60\":\"#1F78C1\",\"20 - 40\":\"#5195CE\",\"0 - 20\":\"#82B5D8\"}},\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWaUKQbx8cOhcAcHKZGR\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "AWaUq2Xr8cOhcAcHKZNE",
+    "_type": "visualization",
+    "_source": {
+      "title": "Tweet counts",
+      "visState": "{\"title\":\"Tweet counts\",\"type\":\"metric\",\"params\":{\"addLegend\":false,\"addTooltip\":true,\"gauge\":{\"autoExtend\":false,\"backStyle\":\"Full\",\"colorSchema\":\"Green to Red\",\"colorsRange\":[{\"from\":0,\"to\":100}],\"gaugeColorMode\":\"None\",\"gaugeStyle\":\"Full\",\"gaugeType\":\"Metric\",\"invertColors\":false,\"labels\":{\"color\":\"black\",\"show\":true},\"orientation\":\"vertical\",\"percentageMode\":false,\"scale\":{\"color\":\"#333\",\"labels\":false,\"show\":false,\"width\":2},\"style\":{\"bgColor\":false,\"fontSize\":\"37\",\"labelColor\":false,\"subText\":\"\"},\"type\":\"simple\",\"useRange\":false,\"verticalSplit\":false,\"minAngle\":0,\"maxAngle\":6.283185307179586},\"type\":\"gauge\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"1-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"1\"}}},\"label\":\"\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"3\"}}}},{\"input\":{\"query\":{\"query_string\":{\"query\":\"5\"}}}},{\"input\":{}}]}},\"customMetric\":{\"id\":\"1-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{\"customLabel\":\"\"}},\"customLabel\":\"Tweet count\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"2-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"1\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"2-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{\"customLabel\":\"Negative\"}},\"customLabel\":\"Negative Tweets\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"3-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"3\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"3-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Neutral Tweets\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"sum_bucket\",\"schema\":\"metric\",\"params\":{\"customBucket\":{\"id\":\"4-bucket\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"bucketAgg\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"5\"}}},\"label\":\"\"}]}},\"customMetric\":{\"id\":\"4-metric\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metricAgg\",\"params\":{}},\"customLabel\":\"Positive Tweets\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"AWaUKQbx8cOhcAcHKZGR\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  }
+]
