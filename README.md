@@ -1,2 +1,2 @@
-# GCSHackathon
-Repository for hackathon code
+#Instant Feedback System
+Hackathon code for GCSHackathon - Smart City Management
